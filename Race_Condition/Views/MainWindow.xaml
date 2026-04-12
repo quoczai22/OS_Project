@@ -1,23 +1,47 @@
 ﻿<Window x:Class="Race_Condition.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:Race_Condition.Views"
-        Title="Race Condition" Height="600" Width="900">
+        xmlns:local="clr-namespace:Race_Condition"
+        mc:Ignorable="d"
+        Title="Race Condition" Height="1000" Width="900">
 
-    <Grid>
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
 
-        <TabControl>
-
+        <!-- TabControl từ HEAD -->
+        <TabControl Grid.Row="0">
             <TabItem Header="Thực nghiệm">
                 <views:ThucNghiemView/>
             </TabItem>
-
             <TabItem Header="Minh họa">
                 <views:MinhHoaView/>
             </TabItem>
-
         </TabControl>
 
-    </Grid>
+        <!-- GroupBox từ commit 0340f7f -->
+        <GroupBox Grid.Row="1" Header="Cấu hình luồng (INPUT)" FontWeight="Bold" Margin="0,0,10,10">
+            <StackPanel Margin="10">
+                <TextBlock Text="Số lượng Threads:" Margin="0,5,0,2"/>
+                <TextBox Text="{Binding DemTienTrinh, UpdateSourceTrigger=PropertyChanged}" Height="25"/>
 
+                <TextBlock Text="Số lần lặp (Iterations):" Margin="0,10,0,2"/>
+                <TextBox Text="{Binding Iterations, UpdateSourceTrigger=PropertyChanged}" Height="25"/>
+
+                <TextBlock Text="Giá trị ban đầu:" Margin="0,10,0,2"/>
+                <TextBox Text="{Binding GiaTriDauTien, UpdateSourceTrigger=PropertyChanged}" Height="25"/>
+
+                <UniformGrid Columns="2" Margin="0,20,0,0" Height="40">
+                    <Button Content="Chạy KO Lock" Command="{Binding RunWithoutLockCommand}" Background="#f44336" Foreground="White"/>
+                    <Button Content="Chạy CÓ Lock" Command="{Binding RunWithLockCommand}" Background="#4caf50" Foreground="White"/>
+                </UniformGrid>
+                <Button Content="Reset" Command="{Binding ResetCommand}" Margin="0,10,0,0" Background="#2196f3" Foreground="White" Height="35"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
 </Window>
