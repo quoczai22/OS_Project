@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Race_Condition"
         mc:Ignorable="d"
-        Title="MainWindow" Height="520" Width="800">
+        Title="MainWindow" Height="600" Width="800">
     <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -21,13 +21,13 @@
             <GroupBox Header="Cấu hình luồng (INPUT)" FontWeight="Bold" Margin="0,0,10,10">
                 <StackPanel Margin="10">
                     <TextBlock Text="Số lượng Threads:" FontWeight="Normal" Margin="0,5,0,2"/>
-                    <TextBox Text="{Binding DemTienTrinh}" Height="25" Padding="3" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding DemTienTrinh, UpdateSourceTrigger=PropertyChanged}" Height="25" Padding="3" VerticalContentAlignment="Center"/>
 
                     <TextBlock Text="Số lần lặp (Iterations):" FontWeight="Normal" Margin="0,10,0,2"/>
-                    <TextBox Text="{Binding Iterations}" Height="25" Padding="3" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding Iterations, UpdateSourceTrigger=PropertyChanged}" Height="25" Padding="3" VerticalContentAlignment="Center"/>
 
                     <TextBlock Text="Giá trị ban đầu:" FontWeight="Normal" Margin="0,10,0,2"/>
-                    <TextBox Text="{Binding GiaTriDauTien}" Height="25" Padding="3" VerticalContentAlignment="Center"/>
+                    <TextBox Text="{Binding GiaTriDauTien, UpdateSourceTrigger=PropertyChanged}" Height="25" Padding="3" VerticalContentAlignment="Center"/>
 
                     <UniformGrid Columns="2" Margin="0,20,0,0" Height="40">
                         <Button Content="Chạy KO Lock" Margin="0,0,5,0" Background="#f44336" Foreground="White" 
@@ -35,6 +35,8 @@
                         <Button Content="Chạy CÓ Lock" Margin="5,0,0,0" Background="#4caf50" Foreground="White" 
                                 Command="{Binding RunWithLockCommand}"/>
                     </UniformGrid>
+                    <Button Content="Reset" Margin="0,10,0,0" Background="#2196f3" Foreground="White" 
+                            Command="{Binding ResetCommand}" Height="35"/>
                 </StackPanel>
             </GroupBox>
 
