@@ -1,87 +1,13 @@
 ﻿<Window x:Class="Race_Condition.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:Race_Condition.Views"
-        mc:Ignorable="d"
-<<<<<<< HEAD
-        Title="MainWindow" Height="600" Width="800">
-    <Grid Margin="15">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
+        Title="Race Condition" Height="600" Width="900">
 
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1.5*"/>
-            </Grid.ColumnDefinitions>
+    <Grid>
 
-            <GroupBox Header="Cấu hình luồng (INPUT)" FontWeight="Bold" Margin="0,0,10,10">
-                <StackPanel Margin="10">
-                    <TextBlock Text="Số lượng Threads:" FontWeight="Normal" Margin="0,5,0,2"/>
-                    <TextBox Text="{Binding DemTienTrinh, UpdateSourceTrigger=PropertyChanged}" Height="25" Padding="3" VerticalContentAlignment="Center"/>
-
-                    <TextBlock Text="Số lần lặp (Iterations):" FontWeight="Normal" Margin="0,10,0,2"/>
-                    <TextBox Text="{Binding Iterations, UpdateSourceTrigger=PropertyChanged}" Height="25" Padding="3" VerticalContentAlignment="Center"/>
-
-                    <TextBlock Text="Giá trị ban đầu:" FontWeight="Normal" Margin="0,10,0,2"/>
-                    <TextBox Text="{Binding GiaTriDauTien, UpdateSourceTrigger=PropertyChanged}" Height="25" Padding="3" VerticalContentAlignment="Center"/>
-
-                    <UniformGrid Columns="2" Margin="0,20,0,0" Height="40">
-                        <Button Content="Chạy KO Lock" Margin="0,0,5,0" Background="#f44336" Foreground="White" 
-                                Command="{Binding RunWithoutLockCommand}"/>
-                        <Button Content="Chạy CÓ Lock" Margin="5,0,0,0" Background="#4caf50" Foreground="White" 
-                                Command="{Binding RunWithLockCommand}"/>
-                    </UniformGrid>
-                    <Button Content="Reset" Margin="0,10,0,0" Background="#2196f3" Foreground="White" 
-                            Command="{Binding ResetCommand}" Height="35"/>
-                </StackPanel>
-            </GroupBox>
-
-            <GroupBox Header="Nhật ký tiến trình (EXECUTION LOG)" FontWeight="Bold" Grid.Column="1" Margin="10,0,0,10">
-                <ListBox Margin="5" ItemsSource="{Binding Logs}" FontWeight="Normal" Background="#f8f9fa"/>
-            </GroupBox>
-        </Grid>
-
-        <GroupBox Header="Kết quả mô phỏng (RESULT)" FontWeight="Bold" Grid.Row="1" Margin="0,10,0,0">
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Giá trị kỳ vọng (Expected):" FontWeight="Normal" Margin="0,5,10,5"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding GiaTriKyVong}" FontWeight="Bold" Foreground="Blue" Margin="0,5,0,5"/>
-
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Giá trị thực tế (Actual):" FontWeight="Normal" Margin="0,5,10,5"/>
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding GiaTriThuc}" FontWeight="Bold" Foreground="DarkOrange" Margin="0,5,0,5"/>
-
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Thời gian chạy:" FontWeight="Normal" Margin="0,5,10,5"/>
-                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="0,5,0,5">
-                    <TextBlock Text="{Binding ThoiGianThucHien}" FontWeight="Bold"/>
-                    <TextBlock Text=" ms" FontWeight="Normal"/>
-                </StackPanel>
-
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Trạng thái hệ thống:" FontWeight="Normal" Margin="0,5,10,5"/>
-                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Status}" FontWeight="Bold" Foreground="Red" Margin="0,5,0,5"/>
-            </Grid>
-        </GroupBox>
-=======
-        Title="Mô phỏng Race Condition"
-        Height="560"
-        Width="900"
-        WindowStartupLocation="CenterScreen">
-    <Grid Margin="12">
         <TabControl>
+
             <TabItem Header="Thực nghiệm">
                 <views:ThucNghiemView/>
             </TabItem>
@@ -89,7 +15,9 @@
             <TabItem Header="Minh họa">
                 <views:MinhHoaView/>
             </TabItem>
+
         </TabControl>
->>>>>>> 7331d6ab03da9b8f542d246b90bca1dd1e171a0c
+
     </Grid>
+
 </Window>

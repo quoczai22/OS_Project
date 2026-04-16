@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Race_Condition.ViewModels;
 
 namespace Race_Condition.Views
 {
@@ -22,6 +23,7 @@ namespace Race_Condition.Views
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
     }
 }
