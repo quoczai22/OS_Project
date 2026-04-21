@@ -24,6 +24,7 @@ namespace Race_Condition.Views
         public ThucNghiemView()
         {
             InitializeComponent();
+            this.DataContext = new Race_Condition.ViewModels.ThucNghiemViewModel();
         }
     }
 }

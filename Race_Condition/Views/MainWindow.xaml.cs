@@ -23,7 +23,6 @@ namespace Race_Condition.Views
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
         }
     }
 }

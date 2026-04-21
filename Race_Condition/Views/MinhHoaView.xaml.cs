@@ -23,6 +23,7 @@ namespace Race_Condition.Views
         public MinhHoaView()
         {
             InitializeComponent();
+            this.DataContext = new Race_Condition.ViewModels.MinhHoaViewModel();
         }
     }
 }
